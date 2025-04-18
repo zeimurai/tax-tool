@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Fill PDF and Download</title>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  </head>
+    <body>
+        <button id="fillButton">Fill PDF and Download</button>
+        <script>
+        document.getElementById('fillButton').addEventListener('click', async () => {
+            try {
+            const pdfUrl = 'http://localhost:5500/frontend/pdf/original_f8843.pdf';
+            const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
+            
+            const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+            const form = pdfDoc.getForm();
+            
+            // Debug: list all available field names
+            const fields = form.getFields();
+            fields.forEach(field => {
+                console.log('Found field:', field.getName());
+            });
+            
+            // Update the field names according to the actual names in the PDF
+            // For Page1 text fields f1_1 to f1_29
+            const beginningDate = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_1[0]');
+            const endingDate = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_2[0]');
+            const filingYear = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_3[0]');
+            const firstNameField = form.getTextField('topmostSubform[0].Page1[0].f1_4[0]');
+            const lastNameField = form.getTextField('topmostSubform[0].Page1[0].f1_5[0]');
+            const tin = form.getTextField('topmostSubform[0].Page1[0].f1_6[0]');
+            const ForeignAddress = form.getTextField('topmostSubform[0].Page1[0].f1_7[0]');
+            const usAddress = form.getTextField('topmostSubform[0].Page1[0].f1_8[0]');
+            const i_visaType_entry_date = form.getTextField('topmostSubform[0].Page1[0].f1_9[0]');
+            const i_cur_nonimmi_status = form.getTextField('topmostSubform[0].Page1[0].f1_10[0]');
+            const i_citizen_country = form.getTextField('topmostSubform[0].Page1[0].f1_11[0]');
+            const i_passportCountry = form.getTextField('topmostSubform[0].Page1[0].f1_12[0]');
+            const i_passportNumber = form.getTextField('topmostSubform[0].Page1[0].f1_13[0]');
+            const i_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_14[0]');
+            const i_stays_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_15[0]');
+            const i_stays_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_16[0]');
+            const i_exclude_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
+
+            // Part 2 Teacher or Trainee
+            const ii_5_1 = form.getTextField('topmostSubform[0].Page1[0].f1_18[0]');
+            const ii_5_2 = form.getTextField('topmostSubform[0].Page1[0].f1_19[0]');
+            const ii_5_3 = form.getTextField('topmostSubform[0].Page1[0].f1_20[0]');
+            const ii_6_1 = form.getTextField('topmostSubform[0].Page1[0].f1_21[0]');
+            const ii_6_2 = form.getTextField('topmostSubform[0].Page1[0].f1_22[0]');
+            const ii_6_3 = form.getTextField('topmostSubform[0].Page1[0].f1_23[0]');
+            const ii_7_1 = form.getTextField('topmostSubform[0].Page1[0].f1_24[0]');
+            const ii_7_2 = form.getTextField('topmostSubform[0].Page1[0].f1_25[0]');
+            const ii_7_3 = form.getTextField('topmostSubform[0].Page1[0].f1_26[0]');
+            const ii_7_4 = form.getTextField('topmostSubform[0].Page1[0].f1_27[0]');
+            const ii_7_5 = form.getTextField('topmostSubform[0].Page1[0].f1_28[0]');
+            const ii_7_6 = form.getTextField('topmostSubform[0].Page1[0].f1_29[0]');
+            // For Page1 checkboxes c1_1
+            const c1_1_0 = form.getCheckBox('topmostSubform[0].Page1[0].c1_1[0]');
+            const c1_1_1 = form.getCheckBox('topmostSubform[0].Page1[0].c1_1[1]');
+            
+            // Part 3 Students
+            const iii_school_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_30[0]');
+            const iii_school_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_31[0]');
+            const iii_school_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_32[0]');
+            const iii_director_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_33[0]');
+            const iii_director_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_34[0]');
+            const iii_director_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_35[0]');
+            const iii_visa_type_2018 = form.getTextField('topmostSubform[0].Page1[0].f1_36[0]');
+            const iii_visa_type_2019 = form.getTextField('topmostSubform[0].Page1[0].f1_37[0]');
+            const iii_visa_type_2020 = form.getTextField('topmostSubform[0].Page1[0].f1_38[0]');
+            const iii_visa_type_2021 = form.getTextField('topmostSubform[0].Page1[0].f1_39[0]');
+            const iii_visa_type_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_40[0]');
+            const iii_visa_type_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_41[0]');
+            // For Page1 checkboxes c1_2 and c1_3
+            const iii_more_than_5years_Yes = form.getCheckBox('topmostSubform[0].Page1[0].c1_2[0]');
+            const iii_more_than_5years_No = form.getCheckBox('topmostSubform[0].Page1[0].c1_2[1]');
+            const iii_apply_residenct_Yes = form.getCheckBox('topmostSubform[0].Page1[0].c1_3[0]');
+            const iii_apply_residenct_No = form.getCheckBox('topmostSubform[0].Page1[0].c1_3[1]');
+            
+            // For Page1 text fields if you applied for a resident card
+            const iii_apply_residenct_Yes_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_42[0]');
+            const iii_apply_residenct_Yes_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_43[0]');
+            const iii_apply_residenct_Yes_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_44[0]');
+            
+            // For Page2 Part 4 Professional Athelete
+            const iiii_15_1 = form.getTextField('topmostSubform[0].Page2[0].f2_1[0]');
+            const iiii_15_2 = form.getTextField('topmostSubform[0].Page2[0].f2_2[0]');
+            const iiii_15_3 = form.getTextField('topmostSubform[0].Page2[0].f2_3[0]');
+            const iiii_16_1 = form.getTextField('topmostSubform[0].Page2[0].f2_4[0]');
+            const iiii_16_2 = form.getTextField('topmostSubform[0].Page2[0].f2_5[0]');
+            const iiii_16_3 = form.getTextField('topmostSubform[0].Page2[0].f2_6[0]');
+
+            // For Page2 Part 5 Individuals With a Medical Condition or Medical Problem
+            const iiiii_17a_1 = form.getTextField('topmostSubform[0].Page2[0].f2_7[0]');
+            const iiiii_17a_2 = form.getTextField('topmostSubform[0].Page2[0].f2_8[0]');
+            const iiiii_17a_3 = form.getTextField('topmostSubform[0].Page2[0].f2_9[0]');
+            const iiiii_17a_4 = form.getTextField('topmostSubform[0].Page2[0].f2_10[0]');
+            const iiiii_17b = form.getTextField('topmostSubform[0].Page2[0].f2_11[0]');
+            const iiiii_17c = form.getTextField('topmostSubform[0].Page2[0].f2_12[0]');
+            const iiiii_18_1 = form.getTextField('topmostSubform[0].Page2[0].f2_13[0]');
+            const iiiii_18_2 = form.getTextField('topmostSubform[0].Page2[0].f2_14[0]');
+            const iiiii_18_3 = form.getTextField('topmostSubform[0].Page2[0].f2_15[0]');
+
+            // Update the field values
+            // General
+            beginningDate.setText('January 1');
+            endingDate.setText('December 31');
+            filingYear.setText('24');
+            firstNameField.setText('Tamaki');
+            lastNameField.setText('Endo');
+            ForeignAddress.setText('1234 Elm St, Tokyo, Japan');
+            usAddress.setText('5678 Oak St, New York, NY 10001');
+            i_visaType_entry_date.setText('F-1');
+            i_cur_nonimmi_status.setText('cur nonimmi status');
+            i_citizen_country.setText('citizen_country');
+            i_passportCountry.setText('passportCountry');
+            i_passportNumber.setText('passportNumber');
+            i_stays_2024.setText('2024');
+            i_stays_2023.setText('2023');
+            i_stays_2022.setText('2022');
+            i_exclude_stays_2024.setText('2024');
+
+            // Part 3 Students
+            iii_school_info_1.setText('123 School St, City, State 12345');
+            iii_school_info_2.setText('456 School Ave, City, State 67890');
+            iii_school_info_3.setText('789 School Blvd, City, State 11223');
+            iii_director_info_1.setText('Director Name');
+            iii_director_info_2.setText('Director Title');
+            iii_director_info_3.setText('Director Phone');
+            iii_visa_type_2018.setText('F');
+            iii_visa_type_2019.setText('F');
+            iii_visa_type_2020.setText('F');
+            iii_visa_type_2021.setText('F');
+            iii_visa_type_2022.setText('F');
+            iii_visa_type_2023.setText('F');
+            iii_more_than_5years_No.check();
+            iii_apply_residenct_Yes.check();
+            iii_apply_residenct_Yes_info_1.setText('Test Test Test');
+            iii_apply_residenct_Yes_info_2.setText('Test Test');
+            iii_apply_residenct_Yes_info_3.setText('Test');
+
+            
+            
+            const modifiedPdfBytes = await pdfDoc.save();
+            const blob = new Blob([modifiedPdfBytes], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'f8843_filled.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            } catch (error) {
+            console.error('Error filling PDF:', error);
+            }
+        });
+        </script>
+    </body>
+</html>
