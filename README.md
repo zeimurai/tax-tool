@@ -1,7 +1,9 @@
 # tax-tool
 Form 8843
 
-## User Management Endpoints
+## Only works on the frontend
+
+## The description below is for future development
 
 The backend provides the following endpoints for user management and authentication using JWT. These endpoints are accessible under the `/accounts/` prefix:
 
