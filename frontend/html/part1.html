@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Part 1 - Basic & General Info</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+</head>
+<body>
+    <h1>Basic Info & Part 1 General Info</h1>
+    <form id="part1Form">
+        <div class="section">
+            <h2>Basic Info</h2>
+            <div class="field">
+                <label for="beginningDate">開始日 (Beginning Date):</label>
+                <input type="text" id="beginningDate" placeholder="例: January 1">
+                <small>フォームの期間の開始日を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="endingDate">終了日 (Ending Date):</label>
+                <input type="text" id="endingDate" placeholder="例: December 31">
+                <small>フォームの期間の終了日を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="filingYear">申告年度 (Filing Year):</label>
+                <input type="text" id="filingYear" placeholder="例: 24">
+                <small>申告する年度を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="firstName">名前 (First Name):</label>
+                <input type="text" id="firstName" placeholder="例: Tamaki">
+                <small>名を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="lastName">名字 (Last Name):</label>
+                <input type="text" id="lastName" placeholder="例: Endo">
+                <small>姓を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="tin">納税者番号 (TIN):</label>
+                <input type="text" id="tin" placeholder="例: 123456789">
+                <small>個人の納税者番号を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="ForeignAddress">外国の住所 (Foreign Address):</label>
+                <textarea id="ForeignAddress" placeholder="例: 1234 Elm St, Tokyo, Japan" rows="4"></textarea>
+                <small>海外の住所を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="usAddress">米国の住所 (US Address):</label>
+                <textarea id="usAddress" placeholder="例: 5678 Oak St, New York, NY 10001" rows="4"></textarea>
+                <small>米国の住所を入力してください。</small>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Part 1 General Info</h2>
+            <div class="field">
+                <label for="i_visaType_entry_date">ビザ種類 / 入国日 (Visa Type/Entry Date):</label>
+                <input type="text" id="i_visaType_entry_date" placeholder="例: F-1">
+                <small>使用しているビザの種類または入国日を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_cur_nonimmi_status">現在の非移民ステータス (Current Nonimmigrant Status):</label>
+                <input type="text" id="i_cur_nonimmi_status" placeholder="例: Student">
+                <small>現在の非移民ステータスを入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_citizen_country">市民権保有国 (Citizen Country):</label>
+                <input type="text" id="i_citizen_country" placeholder="例: Japan">
+                <small>市民権を有する国を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_passportCountry">パスポート発行国 (Passport Country):</label>
+                <input type="text" id="i_passportCountry" placeholder="例: Japan">
+                <small>パスポートを発行した国を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_passportNumber">パスポート番号 (Passport Number):</label>
+                <input type="text" id="i_passportNumber" placeholder="例: X123456789">
+                <small>パスポート番号を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_stays_2024">2024年滞在日数 (Days Stayed in 2024):</label>
+                <input type="text" id="i_stays_2024" placeholder="例: 2024">
+                <small>2024年の滞在日数を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_stays_2023">2023年滞在日数 (Days Stayed in 2023):</label>
+                <input type="text" id="i_stays_2023" placeholder="例: 2023">
+                <small>2023年の滞在日数を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_stays_2022">2022年滞在日数 (Days Stayed in 2022):</label>
+                <input type="text" id="i_stays_2022" placeholder="例: 2022">
+                <small>2022年の滞在日数を入力してください。</small>
+            </div>
+            <div class="field">
+                <label for="i_exclude_stays_2024">除外すべき2024年滞在日数 (Exclude Days in 2024):</label>
+                <input type="text" id="i_exclude_stays_2024" placeholder="例: 2024">
+                <small>除外対象の2024年滞在日数を入力してください。</small>
+            </div>
+        </div>
+        <button type="button" id="clearBtn">Clear Saved Data</button>
+        <button type="button" id="nextBtn">Next</button>
+    </form>
+</body>
+</html>
