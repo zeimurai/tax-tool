@@ -1,11 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <title>Tax Tool - Test HTML</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Taxumo - Home</title>
+    <link rel="stylesheet" href="../frontend/css/destyle.css">
+    <link rel="stylesheet" href="../frontend/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link rel="icon" href="../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
+
 <body>
-    <h1>Welcome to the Tax Tool</h1>
-    <p>This is a test HTML page.</p>
+    <header>
+        <nav class="menu">
+            <a href="#" id="top-left-logo">
+                <img src="../frontend/image/logo/taxumo-mark.png" alt="icon" width="50" height=auto>
+                <h1><img src="../frontend/image/logo/taxumo-letter.png" alt="icon" width="150" height=auto></h1>
+                </h1>
+            </a>
+
+            <!-- hamburger menu -->
+            <div class="hamburger-menu" onclick="toggleMenu(this)">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+
+            <ul id="menu-list">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
+                <li><a href="#">FAQ</a></li>
+                <!-- Switch JPN EN -->
+                <!-- <li><a href="#"></a></li>
+            <li><a href="#"></a></li> -->
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- メニューを全表示かアイコンのみか判別するJS -->
+    <script>
+        function toggleMenu(element) {
+            element.classList.toggle("active");
+        }
+    </script>
+
+    <main>
+        <!-- トップ -->
+        <section class="top">
+            <div class="top-title">
+                <h1>日本人留学生向けの米国税務申告ガイド</h1>
+                <h2>Form 8843はTaxumoにお任せ！</h2>
+            </div>
+            <h3><a href="#">始める</a></h3>
+        </section>
+        <!-- サービス概要 -->
+        <section class="intro-service">
+            <h1>Taxumoとは？</h1>
+            <p>Taxumoは、在米日本人向けの米国の税務申告を簡単に行うためのオンラインサービスです。Form 8843の書類作成をサポートしています。</p>
+            <p>Taxumoを使うことでシンプルにForm 8843を記入できます。</p>
+            <p>在米外国人・留学生はアメリカ国内での収入の有無に関わらずForm 8843は全員必須です。詳しくはこちら
+                <a href="#"><span>Form 8843とは？</span></a>をご覧ください。
+            </p>
+
+
+            <!-- サービス内容３点 -->
+            <h2>Taxumoの３サービス</h2>
+            <div class="intro-service-content">
+                <div class="intro-service-content-item">
+                    <p><img src="../frontend/image/logo/keyboard.png" alt="image"></p>
+                    <h3>基本情報の入力</h2>
+                </div>
+                <div class="intro-service-content-item">
+                    <p><img src="../frontend/image/logo/pdf.png" alt="image"></p>
+                    <h3>書類作成</h2>
+                </div>
+                <div class="intro-service-content-item">
+                    <p><img src="../frontend/image/logo/teach.png" alt="image"></p>
+                    <h3>提出までの案内</h2>
+                </div>
+            </div>  
+
+        </section>
+
+        <div class="deadline">
+            <h2>Tax Return (確定申告) の締切</h2>
+            <ul>
+                <li>収入あり：
+                    <ol>
+                        <li>提出書類：Form 1040NRとForm 8843</li>
+                        <li>締切：毎年4月15日（必着）</li>
+                    </ol>
+                <li>収入なし</li>
+                <ol>
+                    <li>提出書類：Form 8843</li>
+                    <li>締切：毎年6月15日（必着）</li>
+                </ol>
+            </ul>
+            <div class="annotation">
+                <p>※ 留学生として滞在した年の分はの翌年に申告。（例：2024年の申告は2025年の4月または6月締め切り）</p>
+                <p>※ 学内アルバイトやOPT/CPTのインターンなど、アメリカ国内で発生した収入がある非移民ビザ滞在者(F-1, J-1, etc)はForm 8843に加えて、別途
+                    Form-1040NRの提出が必要です。</p>
+            </div>
+        </div>
+
+
+        <!-- Form作成開始ボタン -->
+        <h3 id="start"><a href="#">始める</a></h3>
+
+    </main>
+
+    <footer>
+        <div class="footer-menu">
+            <h2>MENU</h2>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <p>© 2025 Taxumo. All rights reserved.</p>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+        </div>
+        <div class="footer-logo">
+            <img src="../frontend/image/logo/taxumo-logo.png" alt="icon">
+        </div>
+    </footer>
 </body>
+
 </html>
