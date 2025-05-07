@@ -26,6 +26,9 @@ textarea {
     display: flex;
     gap: 1rem;
 }
+.radio-group input {
+    width: auto;
+}
 small {
     display: block;
     margin-top: 0.25rem;
