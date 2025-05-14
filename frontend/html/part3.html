@@ -2,136 +2,170 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Part 3 - Student Info</title>
+    <title>Taxumo - Student Information</title>
     <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/form-style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="../js/main.js" defer></script>
+    <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 <body>
-    <h1>Part 3 - Student Info</h1>
-    <form id="part3Form">
-        <div class="section">
-            <h2>School Information</h2>
-            <div class="field">
-                <label for="iii_school_info_1">学校住所 1 (School Info 1):</label>
-                <input type="text" id="iii_school_info_1" placeholder="例: 123 School St, City, State 12345">
-                <small>学校の所在地の詳細を入力してください。</small>
+    <header>
+        <nav class="menu">
+            <a href="../index.html" id="top-left-logo">
+                <img src="../image/logo/taxumo-mark.png" alt="icon" width="50" height="auto">
+                <h1><img src="../image/logo/taxumo-letter.png" alt="icon" width="150" height="auto"></h1>
+            </a>
+            <!-- hamburger menu -->
+            <div class="hamburger-menu" onclick="toggleMenu(this)">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
             </div>
-            <div class="field">
-                <label for="iii_school_info_2">学校住所 2 (School Info 2):</label>
-                <input type="text" id="iii_school_info_2" placeholder="例: 456 School Ave, City, State 67890">
-                <small>学校の所在地の補助情報を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_school_info_3">学校住所 3 (School Info 3):</label>
-                <input type="text" id="iii_school_info_3" placeholder="例: 789 School Blvd, City, State 11223">
-                <small>学校に関するその他の情報を入力してください。</small>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Director Information</h2>
-            <div class="field">
-                <label for="iii_director_info_1">ディレクター名 (Director Name):</label>
-                <input type="text" id="iii_director_info_1" placeholder="例: Director Name">
-                <small>学校のディレクターの名前を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_director_info_2">ディレクターの肩書 (Director Title):</label>
-                <input type="text" id="iii_director_info_2" placeholder="例: Director Title">
-                <small>ディレクターの役職または肩書を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_director_info_3">ディレクターの連絡先 (Director Phone):</label>
-                <input type="text" id="iii_director_info_3" placeholder="例: 555-1234">
-                <small>ディレクターの連絡先情報を入力してください。</small>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Visa Information</h2>
-            <div class="field">
-                <label for="iii_visa_type_2018">2018年ビザタイプ (Visa Type 2018):</label>
-                <input type="text" id="iii_visa_type_2018" placeholder="例: F">
-                <small>2018年に適用されるビザの種類を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_visa_type_2019">2019年ビザタイプ (Visa Type 2019):</label>
-                <input type="text" id="iii_visa_type_2019" placeholder="例: F">
-                <small>2019年に適用されるビザの種類を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_visa_type_2020">2020年ビザタイプ (Visa Type 2020):</label>
-                <input type="text" id="iii_visa_type_2020" placeholder="例: F">
-                <small>2020年に適用されるビザの種類を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_visa_type_2021">2021年ビザタイプ (Visa Type 2021):</label>
-                <input type="text" id="iii_visa_type_2021" placeholder="例: F">
-                <small>2021年に適用されるビザの種類を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_visa_type_2022">2022年ビザタイプ (Visa Type 2022):</label>
-                <input type="text" id="iii_visa_type_2022" placeholder="例: F">
-                <small>2022年に適用されるビザの種類を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_visa_type_2023">2023年ビザタイプ (Visa Type 2023):</label>
-                <input type="text" id="iii_visa_type_2023" placeholder="例: F">
-                <small>2023年に適用されるビザの種類を入力してください。</small>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Additional Student Questions</h2>
-            <fieldset>
-                <legend>5年以上の留学経験がありますか？ (Have you studied for more than 5 years?)</legend>
-                <div class="radio-group">
-                    <label for="iii_more_than_5years_Yes">
-                        <input type="radio" name="moreThan5Years" value="yes" id="iii_more_than_5years_Yes">
-                        Yes
-                    </label>
-                    <label for="iii_more_than_5years_No">
-                        <input type="radio" name="moreThan5Years" value="no" id="iii_more_than_5years_No">
-                        No
-                    </label>
+            <ul id="menu-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu(element) {
+            element.classList.toggle("active");
+        }
+    </script>
+    <main>
+        <section class="page-title">
+            <h1>Taxumo - Student Information</h1>
+        </section>
+        <form id="part3Form">
+            <div class="section">
+                <h2>School Information</h2>
+                <div class="field">
+                    <label for="iii_school_info_1">学校住所 1 (School Info 1):</label>
+                    <input type="text" id="iii_school_info_1" placeholder="例: 123 School St, City, State 12345">
+                    <small>学校の所在地の詳細を入力してください。</small>
                 </div>
-                <small>5年以上の留学歴がある場合は「Yes」を選んでください。</small>
-            </fieldset>
-
-            <fieldset>
-                <legend>住民カードの申請をしましたか？ (Did you apply for a resident card?)</legend>
-                <div class="radio-group">
-                    <label for="iii_apply_residenct_Yes">
-                        <input type="radio" name="applyResident" value="yes" id="iii_apply_residenct_Yes">
-                        Yes
-                    </label>
-                    <label for="iii_apply_residenct_No">
-                        <input type="radio" name="applyResident" value="no" id="iii_apply_residenct_No">
-                        No
-                    </label>
+                <div class="field">
+                    <label for="iii_school_info_2">学校住所 2 (School Info 2):</label>
+                    <input type="text" id="iii_school_info_2" placeholder="例: 456 School Ave, City, State 67890">
+                    <small>学校の所在地の補助情報を入力してください。</small>
                 </div>
-                <small>住民カードを申請した場合は「Yes」を選んでください。</small>
-            </fieldset>
+                <div class="field">
+                    <label for="iii_school_info_3">学校住所 3 (School Info 3):</label>
+                    <input type="text" id="iii_school_info_3" placeholder="例: 789 School Blvd, City, State 11223">
+                    <small>学校に関するその他の情報を入力してください。</small>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Director Information</h2>
+                <div class="field">
+                    <label for="iii_director_info_1">ディレクター名 (Director Name):</label>
+                    <input type="text" id="iii_director_info_1" placeholder="例: Director Name">
+                    <small>学校のディレクターの名前を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_director_info_2">ディレクターの肩書 (Director Title):</label>
+                    <input type="text" id="iii_director_info_2" placeholder="例: Director Title">
+                    <small>ディレクターの役職または肩書を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_director_info_3">ディレクターの連絡先 (Director Phone):</label>
+                    <input type="text" id="iii_director_info_3" placeholder="例: 555-1234">
+                    <small>ディレクターの連絡先情報を入力してください。</small>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Visa Information</h2>
+                <div class="field">
+                    <label for="iii_visa_type_2018">2018年ビザタイプ (Visa Type 2018):</label>
+                    <input type="text" id="iii_visa_type_2018" placeholder="例: F">
+                    <small>2018年に適用されるビザの種類を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_visa_type_2019">2019年ビザタイプ (Visa Type 2019):</label>
+                    <input type="text" id="iii_visa_type_2019" placeholder="例: F">
+                    <small>2019年に適用されるビザの種類を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_visa_type_2020">2020年ビザタイプ (Visa Type 2020):</label>
+                    <input type="text" id="iii_visa_type_2020" placeholder="例: F">
+                    <small>2020年に適用されるビザの種類を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_visa_type_2021">2021年ビザタイプ (Visa Type 2021):</label>
+                    <input type="text" id="iii_visa_type_2021" placeholder="例: F">
+                    <small>2021年に適用されるビザの種類を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_visa_type_2022">2022年ビザタイプ (Visa Type 2022):</label>
+                    <input type="text" id="iii_visa_type_2022" placeholder="例: F">
+                    <small>2022年に適用されるビザの種類を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_visa_type_2023">2023年ビザタイプ (Visa Type 2023):</label>
+                    <input type="text" id="iii_visa_type_2023" placeholder="例: F">
+                    <small>2023年に適用されるビザの種類を入力してください。</small>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Additional Student Questions</h2>
+                <fieldset>
+                    <legend>5年以上の留学経験がありますか？ (Have you studied for more than 5 years?)</legend>
+                    <div class="radio-group">
+                        <label for="iii_more_than_5years_Yes">
+                            <input type="radio" name="moreThan5Years" value="yes" id="iii_more_than_5years_Yes">
+                            Yes
+                        </label>
+                        <label for="iii_more_than_5years_No">
+                            <input type="radio" name="moreThan5Years" value="no" id="iii_more_than_5years_No">
+                            No
+                        </label>
+                    </div>
+                    <small>5年以上の留学歴がある場合は「Yes」を選んでください。</small>
+                </fieldset>
 
-            <div class="field">
-                <label for="iii_apply_residenct_Yes_info_1">住民カード申請詳細 1 (Resident Card Info 1):</label>
-                <input type="text" id="iii_apply_residenct_Yes_info_1" placeholder="例: Test Info 1">
-                <small>住民カード申請に関する補足情報1を入力してください。</small>
+                <fieldset>
+                    <legend>住民カードの申請をしましたか？ (Did you apply for a resident card?)</legend>
+                    <div class="radio-group">
+                        <label for="iii_apply_residenct_Yes">
+                            <input type="radio" name="applyResident" value="yes" id="iii_apply_residenct_Yes">
+                            Yes
+                        </label>
+                        <label for="iii_apply_residenct_No">
+                            <input type="radio" name="applyResident" value="no" id="iii_apply_residenct_No">
+                            No
+                        </label>
+                    </div>
+                    <small>住民カードを申請した場合は「Yes」を選んでください。</small>
+                </fieldset>
+
+                <div class="field">
+                    <label for="iii_apply_residenct_Yes_info_1">住民カード申請詳細 1 (Resident Card Info 1):</label>
+                    <input type="text" id="iii_apply_residenct_Yes_info_1" placeholder="例: Test Info 1">
+                    <small>住民カード申請に関する補足情報1を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_apply_residenct_Yes_info_2">住民カード申請詳細 2 (Resident Card Info 2):</label>
+                    <input type="text" id="iii_apply_residenct_Yes_info_2" placeholder="例: Test Info 2">
+                    <small>住民カード申請に関する補足情報2を入力してください。</small>
+                </div>
+                <div class="field">
+                    <label for="iii_apply_residenct_Yes_info_3">住民カード申請詳細 3 (Resident Card Info 3):</label>
+                    <input type="text" id="iii_apply_residenct_Yes_info_3" placeholder="例: Test Info 3">
+                    <small>住民カード申請に関する補足情報3を入力してください。</small>
+                </div>
             </div>
-            <div class="field">
-                <label for="iii_apply_residenct_Yes_info_2">住民カード申請詳細 2 (Resident Card Info 2):</label>
-                <input type="text" id="iii_apply_residenct_Yes_info_2" placeholder="例: Test Info 2">
-                <small>住民カード申請に関する補足情報2を入力してください。</small>
-            </div>
-            <div class="field">
-                <label for="iii_apply_residenct_Yes_info_3">住民カード申請詳細 3 (Resident Card Info 3):</label>
-                <input type="text" id="iii_apply_residenct_Yes_info_3" placeholder="例: Test Info 3">
-                <small>住民カード申請に関する補足情報3を入力してください。</small>
-            </div>
-        </div>
-        <button type="button" id="fillButton">f8843ダウンロード</button>
-        <button type="button" id="clearBtn">Clear Saved Data</button>
-        <button type="button" id="backBtn">Back to Part 1</button>
-    </form>
-    
+            <button type="button" id="fillButton">f8843ダウンロード</button>
+            <button type="button" id="clearBtn">Clear Saved Data</button>
+            <button type="button" id="backBtn">Back to Part 1</button>
+        </form>
+    </main>
 </body>
 </html>
