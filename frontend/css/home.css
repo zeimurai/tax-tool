@@ -111,21 +111,28 @@ main .top h2 {
 }
 
 main .top h3 {
-    width: 220px;
-    border-radius: 15px;
-    text-align: center;
-    margin: 0 10vw;
-    padding: 15px;
-    background: rgb(80, 144, 131);
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
+  width: 220px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 10vw;
+  font-size: 25px;
+  font-weight: bold;
+  overflow: hidden; /* aの角丸対応 */
 }
 
-main .top h3:hover {
-    background: rgb(107, 179, 164);
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-    transition: 0.3s;
+main .top h3 a {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: rgb(80, 144, 131);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+main .top h3 a:hover {
+  background: rgb(107, 179, 164);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  transition: 0.3s;
 }
 
   /* サービス紹介 */
