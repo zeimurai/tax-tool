@@ -28,6 +28,7 @@ textarea {
 }
 .radio-group input {
     width: auto;
+    margin: 10px;
 }
 small {
     display: block;

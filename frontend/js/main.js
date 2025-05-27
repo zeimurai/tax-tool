@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         Object.keys(radioKeys).forEach(groupKey => {
             const saved = localStorage.getItem(groupKey);
+            console.log(saved)
             if (saved) {
                 const radio = document.getElementById(saved);
                 if (radio) radio.checked = true;
