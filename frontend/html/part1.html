@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>Taxumo - Basic & General Info</title>
@@ -13,6 +14,7 @@
     <script src="../js/main.js"></script>
     <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
+
 <body>
     <header>
         <nav class="menu">
@@ -114,7 +116,15 @@
                     <input type="text" id="i_passportNumber" placeholder="例: X123456789">
                     <small>パスポート番号を入力してください。</small>
                 </div>
+                
                 <div class="field">
+                    <label for="i_passportNumber">アメリカへの入出国日を入力:</label>
+                    <small>正確な日数を調べるためには<a href="https://i94.cbp.dhs.gov/home" target="_blank">I-94</a>で自身の記録を取得すること。アメリカで年を越した場合は、入国日に1月1日と記入すること。</small>
+                </div>
+                <div id="container"></div>
+                <script src="../js/daycalc.js"></script>
+
+                <!-- <div class="field">
                     <label for="i_stays_2024">2024年滞在日数 (Days Stayed in 2024):</label>
                     <input type="text" id="i_stays_2024" placeholder="例: 2024">
                     <small>2024年の滞在日数を入力してください。</small>
@@ -128,16 +138,17 @@
                     <label for="i_stays_2022">2022年滞在日数 (Days Stayed in 2022):</label>
                     <input type="text" id="i_stays_2022" placeholder="例: 2022">
                     <small>2022年の滞在日数を入力してください。</small>
-                </div>
+                </div> -->
                 <div class="field">
                     <label for="i_exclude_stays_2024">除外すべき2024年滞在日数 (Exclude Days in 2024):</label>
                     <input type="text" id="i_exclude_stays_2024" placeholder="例: 2024">
-                    <small>除外対象の2024年滞在日数を入力してください。</small>
+                    <small>除外対象の2024年滞在日数があれば、入力してください。</small>
                 </div>
             </div>
-            <button type="button" id="clearBtn">Clear Saved Data</button>
-            <button type="button" id="nextBtn">Next</button>
+            <button type="button" id="clearBtn">入力を全て削除</button>
+            <button type="button" id="nextBtn">次へ進む</button>
         </form>
     </main>
 </body>
+
 </html>
