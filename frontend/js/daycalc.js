@@ -6,7 +6,7 @@ function createYearSection(year) {
     section.innerHTML = `
     <h3>${year}年度</h3>
     <div class="entries" data-year="${year}"></div>
-    <button class="add-btn">+ 入出国日を追加</button>
+    <button type="button" class="add-btn">+ 出入国日を追加</button>
     <div class="total">${year}年度滞在日数合計：0</div>
   `;
 
@@ -20,7 +20,7 @@ function createYearSection(year) {
         div.innerHTML = `
       入国日 <input type="date" class="arrival">
       出国日 <input type="date" class="departure">
-      <button class="remove-btn">削除</button>
+      <button type="button" class="remove-btn">削除</button>
     `;
         entriesDiv.appendChild(div);
         attachListeners(div);
