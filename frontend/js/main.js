@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem(id, input.value);
             });
         });
+
         // ラジオボタンのハンドリング（キー名は 'moreThan5Years' と 'applyResident'）
         const radioKeys = {
             moreThan5Years: ['iii_more_than_5years_Yes', 'iii_more_than_5years_No'],
@@ -217,16 +218,34 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "part1.html";
         });
     }
-
+    
+    // --- Clear button: 個別のキーごと削除 ---
+    const clearBtn = document.getElementById('clearBtn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            // part1Ids, part3Ids とラジオグループキーを削除
+            [...part1Ids, ...part3Ids, 'moreThan5Years', 'applyResident'].forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            // ページ上のすべての入力要素の値をリセット
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    input.checked = false;
+                } else {
+                    input.value = '';
+                }
+            });
+        });
+    }
 });
 
-// --- Clear button: 個別のキーごと削除 ---
-document.getElementById('clearBtn')?.addEventListener('click', () => {
-    // part1Ids, part3Ids とラジオグループキーを削除
-    [...part1Ids, ...part3Ids, 'moreThan5Years', 'applyResident'].forEach(key => {
-        localStorage.removeItem(key);
-    });
-    
+// --- Clear button: すべてのキーを削除 ---
+document.getElementById('clearAllBtn')?.addEventListener('click', () => {
+    // localStorage のすべてのキーを削除
+    localStorage.clear();
+
     // ページ上のすべての入力要素の値をリセット
     const inputs = document.querySelectorAll('input, textarea');
     inputs.forEach(input => {

@@ -85,13 +85,9 @@ function createYearSection(year) {
             totalDisplay.textContent = `${year}年度滞在日数合計：エラー - ${errorMessage}`;
             totalDisplay.style.color = "red";
         } else {
-            totalDisplay.textContent = `${year}年度滞在日数合計：${total}`;
+            // localStorageは変更せず、計算結果のみ表示する
+            totalDisplay.textContent = total ? `${year}年度滞在日数合計：${total}` : `${year}年度滞在日数合計：`;
             totalDisplay.style.color = "black";
-        }
-
-        // html to pdf
-        if (!errorMessage) {
-            localStorage.setItem(`i_stays_${year}`, total); 
         }
     }
 
