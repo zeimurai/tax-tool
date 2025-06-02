@@ -95,7 +95,7 @@ button {
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
     margin: 1rem 0;
 }
 
@@ -114,10 +114,11 @@ a:hover {
     color: rgb(107, 179, 164);
 }
 
+/* daycalc.jsに合わせたCSSスタイル */
 .year-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .year-section h3 {
@@ -126,17 +127,19 @@ a:hover {
 }
 
 .entry {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 input[type="date"] {
   margin-right: 10px;
   width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .add-btn {
-  margin-top: 10px;
-  padding: 7px;
+  margin-top: 5px;
+  padding: 3px 6px;
   background-color: #575757;
   font-size: 14px;
 }
@@ -147,7 +150,7 @@ input[type="date"] {
 }
 
 .total {
-  margin-top: 10px;
+  margin-top: 2px;
   text-align: right;
   font-weight: bold;
 }
@@ -162,4 +165,13 @@ input[type="date"] {
 .remove-btn:hover {
   background-color: #f88;
   color: white;
+}
+
+/* Day-stayed */
+.day-stayed-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  gap: 10px;
+  width: 95%;
 }
