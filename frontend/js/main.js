@@ -18,7 +18,8 @@ const part3Ids = [
 document.getElementById('fillButton')?.addEventListener('click', async () => {
     try {
         // 現在のオリジンからの絶対パスで PDF ファイルを指定
-        const pdfUrl = `${window.location.origin}/frontend/pdf/original_f8843.pdf`;
+        // path for deployment: /tax-tool/pdf/original_f8843.pdf
+        const pdfUrl = `${window.location.origin}/tax-tool/pdf/original_f8843.pdf`;
         const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
         const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
         const form = pdfDoc.getForm();
