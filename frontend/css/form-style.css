@@ -175,3 +175,14 @@ input[type="date"] {
   gap: 10px;
   width: 95%;
 }
+
+.visa-type-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  gap: 10px;
+  width: 95%;
+}
+.visa-type-container label{
+  font-size: 14px;
+}
