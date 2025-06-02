@@ -43,16 +43,16 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         const i_citizen_country = form.getTextField('topmostSubform[0].Page1[0].f1_11[0]');
         const i_passportCountry = form.getTextField('topmostSubform[0].Page1[0].f1_12[0]');
         const i_passportNumber = form.getTextField('topmostSubform[0].Page1[0].f1_13[0]');
-
-        // オリジナル
         const i_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_14[0]');
         const i_stays_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_15[0]');
         const i_stays_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_16[0]');
 
-        // // 新規
+        // 日付計算からの直接入力：使用しない
         // i_stays_2024.setText(localStorage.getItem('i_stays_2024') || '');
         // i_stays_2023.setText(localStorage.getItem('i_stays_2023') || '');
         // i_stays_2022.setText(localStorage.getItem('i_stays_2022') || '');
+
+
         const i_exclude_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
         
         // Part 3 Students (example fields)
