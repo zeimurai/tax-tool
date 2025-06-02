@@ -1,0 +1,24 @@
+.disclaimer {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.disclaimer h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.disclaimer p {
+    margin: 10px 0;
+}
+
+.disclaimer p span {
+    font-weight: bold;
+}
+.agreement_navigation {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
