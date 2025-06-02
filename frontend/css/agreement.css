@@ -1,5 +1,5 @@
 .disclaimer {
-  font-size: 0.9em;
+  font-size: 1.1em;
   color: #555;
   margin-top: 10px;
   line-height: 1.5;
@@ -21,4 +21,9 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
+}
+
+.disclaimer ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
