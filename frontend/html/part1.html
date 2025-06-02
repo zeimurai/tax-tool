@@ -49,7 +49,7 @@
             <div class="section">
                 <h2>Basic Info</h2>
                 <div class="field">
-                    <label for="beginningDate">開始日 (Beginning Date):</label>
+                   <label for="beginningDate">フォーム対象期間の開始日 (Beginning Date)<span style="color:red;">*</span>:</label>
                     <input type="text" id="beginningDate" placeholder="例: January 1">
                     <small>フォームの期間の開始日を入力してください。</small>
                 </div>
@@ -59,18 +59,18 @@
                     <small>フォームの期間の終了日を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="filingYear">申告年度 (Filing Year):</label>
+                    <label for="filingYear">対象年度 (Filing Year):</label>
                     <input type="text" id="filingYear" placeholder="例: 24">
                     <small>申告する年度を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="firstName">名前 (First Name):</label>
-                    <input type="text" id="firstName" placeholder="例: Tamaki">
+                    <input type="text" id="firstName" placeholder="例: Ichiro">
                     <small>名を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="lastName">名字 (Last Name):</label>
-                    <input type="text" id="lastName" placeholder="例: Endo">
+                    <input type="text" id="lastName" placeholder="例: Suzuki">
                     <small>姓を入力してください。</small>
                 </div>
                 <div class="field">
@@ -80,12 +80,12 @@
                 </div>
                 <div class="field">
                     <label for="ForeignAddress">外国の住所 (Foreign Address):</label>
-                    <textarea id="ForeignAddress" placeholder="例: 1234 Elm St, Tokyo, Japan" rows="4"></textarea>
+                    <textarea id="ForeignAddress" placeholder="例: 1-1 Chiyoda&#10;Chiyoda-ku Tokyo&#10;100-0001" rows="4"></textarea>
                     <small>海外の住所を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="usAddress">米国の住所 (US Address):</label>
-                    <textarea id="usAddress" placeholder="例: 5678 Oak St, New York, NY 10001" rows="4"></textarea>
+                    <textarea id="usAddress" placeholder="例: 5678 Oak St&#10;New York, NY&#10;10001" rows="4"></textarea>
                     <small>米国の住所を入力してください。</small>
                 </div>
             </div>
@@ -93,13 +93,15 @@
                 <h2>Part 1 General Info</h2>
                 <div class="field">
                     <label for="i_visaType_entry_date">ビザ種類 / 入国日 (Visa Type/Entry Date):</label>
-                    <input type="text" id="i_visaType_entry_date" placeholder="例: F-1">
-                    <small>使用しているビザの種類または入国日を入力してください。</small>
+                    <input type="text" id="i_visaType_entry_date" placeholder="例: F-1 1/19/2020">
+                    <small>使用しているビザの種類と最初の入国日を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="i_cur_nonimmi_status">現在の非移民ステータス (Current Nonimmigrant Status):</label>
-                    <input type="text" id="i_cur_nonimmi_status" placeholder="例: Student">
-                    <small>現在の非移民ステータスを入力してください。</small>
+                    <input type="text" id="i_cur_nonimmi_status" placeholder="例: F-1">
+                    <small>現在の非移民ステータスを入力してください。(通常は1aのビザ種類と同じ)
+                        <br />*途中でステータスを変更していたら、変更後のステータスと承認日も併記
+                        <br />(例: F-1 → H-1B 10/27/2024)</small>
                 </div>
                 <div class="field">
                     <label for="i_citizen_country">市民権保有国 (Citizen Country):</label>
@@ -124,24 +126,24 @@
                 <div id="container"></div>
                 <script src="../js/daycalc.js"></script>
 
-                <!-- <div class="field">
+                <div class="field">
                     <label for="i_stays_2024">2024年滞在日数 (Days Stayed in 2024):</label>
-                    <input type="text" id="i_stays_2024" placeholder="例: 2024">
+                    <input type="text" id="i_stays_2024" placeholder="例: 300">
                     <small>2024年の滞在日数を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="i_stays_2023">2023年滞在日数 (Days Stayed in 2023):</label>
-                    <input type="text" id="i_stays_2023" placeholder="例: 2023">
+                    <input type="text" id="i_stays_2023" placeholder="例: 314">
                     <small>2023年の滞在日数を入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="i_stays_2022">2022年滞在日数 (Days Stayed in 2022):</label>
-                    <input type="text" id="i_stays_2022" placeholder="例: 2022">
+                    <input type="text" id="i_stays_2022" placeholder="例: 280">
                     <small>2022年の滞在日数を入力してください。</small>
-                </div> -->
+                </div>
                 <div class="field">
                     <label for="i_exclude_stays_2024">除外すべき2024年滞在日数 (Exclude Days in 2024):</label>
-                    <input type="text" id="i_exclude_stays_2024" placeholder="例: 2024">
+                    <input type="text" id="i_exclude_stays_2024" placeholder="例: 300">
                     <small>除外対象の2024年滞在日数があれば、入力してください。</small>
                 </div>
             </div>
