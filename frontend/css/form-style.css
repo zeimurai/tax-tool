@@ -9,7 +9,24 @@ body {
 }
 
 /* Common heading styles similar to index.html */
-h1, h2, h3 {
+h1{
+    color: #000;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #000;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h3 {
     color: #000;
     text-align: center;
     margin: 1rem 0;
@@ -46,8 +63,21 @@ label {
     font-weight: bold;
 }
 
+small a {
+    color: #007bff;
+    text-decoration: none;
+}
 /* Input, select and textarea styling */
-input, select, textarea {
+select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.field input {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
@@ -82,4 +112,54 @@ a {
 
 a:hover {
     color: rgb(107, 179, 164);
+}
+
+.year-section {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.year-section h3 {
+  font-weight: bold;
+  text-align: left;
+}
+
+.entry {
+  margin-bottom: 10px;
+}
+
+input[type="date"] {
+  margin-right: 10px;
+  width: 30%;
+}
+
+.add-btn {
+  margin-top: 10px;
+  padding: 7px;
+  background-color: #575757;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background-color: rgb(107, 179, 164);
+  color: white;
+}
+
+.total {
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+}
+.remove-btn {
+  margin-left: 10px;
+  background-color: #8b8b8b;
+  border: 1px solid #ccc;
+  padding: 2px 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.remove-btn:hover {
+  background-color: #f88;
+  color: white;
 }

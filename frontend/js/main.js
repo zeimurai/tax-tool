@@ -1,3 +1,19 @@
+// グローバルで Part 1 と Part 3 のフィールドIDを定義
+const part1Ids = [
+    'beginningDate', 'endingDate', 'filingYear', 'firstName', 'lastName', 'tin',
+    'ForeignAddress', 'usAddress', 'i_visaType_entry_date', 'i_cur_nonimmi_status',
+    'i_citizen_country', 'i_passportCountry', 'i_passportNumber', 'i_stays_2024',
+    'i_stays_2023', 'i_stays_2022', 'i_exclude_stays_2024'
+];
+
+const part3Ids = [
+    'iii_school_info_1', 'iii_school_info_2', 'iii_school_info_3',
+    'iii_director_info_1', 'iii_director_info_2', 'iii_director_info_3',
+    'iii_visa_type_2018', 'iii_visa_type_2019', 'iii_visa_type_2020',
+    'iii_visa_type_2021', 'iii_visa_type_2022', 'iii_visa_type_2023',
+    'iii_apply_residenct_Yes_info_1', 'iii_apply_residenct_Yes_info_2', 'iii_apply_residenct_Yes_info_3'
+];
+
 // --- PDF generation and download functionality ---
 document.getElementById('fillButton')?.addEventListener('click', async () => {
     try {
@@ -27,10 +43,18 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         const i_citizen_country = form.getTextField('topmostSubform[0].Page1[0].f1_11[0]');
         const i_passportCountry = form.getTextField('topmostSubform[0].Page1[0].f1_12[0]');
         const i_passportNumber = form.getTextField('topmostSubform[0].Page1[0].f1_13[0]');
+
+        // オリジナル
         const i_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_14[0]');
         const i_stays_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_15[0]');
         const i_stays_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_16[0]');
+
+        // // 新規
+        // i_stays_2024.setText(localStorage.getItem('i_stays_2024') || '');
+        // i_stays_2023.setText(localStorage.getItem('i_stays_2023') || '');
+        // i_stays_2022.setText(localStorage.getItem('i_stays_2022') || '');
         const i_exclude_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
+        
         // Part 3 Students (example fields)
         const iii_school_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_30[0]');
         const iii_school_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_31[0]');
@@ -117,25 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Part 1 form
     const part1Form = document.getElementById('part1Form');
     if (part1Form) {
-        const fieldIds = [
-            'beginningDate', 'endingDate', 'filingYear', 'firstName', 'lastName', 'tin',
-            'ForeignAddress', 'usAddress', 'i_visaType_entry_date', 'i_cur_nonimmi_status',
-            'i_citizen_country', 'i_passportCountry', 'i_passportNumber', 'i_stays_2024',
-            'i_stays_2023', 'i_stays_2022', 'i_exclude_stays_2024'
-        ];
-        fieldIds.forEach(id => {
+        part1Ids.forEach(id => {
             const input = document.getElementById(id);
             if (localStorage.getItem(id)) {
                 input.value = localStorage.getItem(id);
             }
             input.addEventListener('input', () => {
                 localStorage.setItem(id, input.value);
-            });
-        });
-        document.getElementById('clearBtn')?.addEventListener('click', () => {
-            fieldIds.forEach(id => {
-                localStorage.removeItem(id);
-                document.getElementById(id).value = '';
             });
         });
     }
@@ -143,19 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Part 3 form
     const part3Form = document.getElementById('part3Form');
     if (part3Form) {
-        const fieldIds = [
-            'iii_school_info_1', 'iii_school_info_2', 'iii_school_info_3',
-            'iii_director_info_1', 'iii_director_info_2', 'iii_director_info_3',
-            'iii_visa_type_2018', 'iii_visa_type_2019', 'iii_visa_type_2020',
-            'iii_visa_type_2021', 'iii_visa_type_2022', 'iii_visa_type_2023',
-            'iii_apply_residenct_Yes_info_1', 'iii_apply_residenct_Yes_info_2', 'iii_apply_residenct_Yes_info_3'
-        ];
-        // For radio groups in Part 3:
-        const radioKeys = {
-            moreThan5Years: ['iii_more_than_5years_Yes', 'iii_more_than_5years_No'],
-            applyResident: ['iii_apply_residenct_Yes', 'iii_apply_residenct_No']
-        };
-        fieldIds.forEach(id => {
+        part3Ids.forEach(id => {
             const input = document.getElementById(id);
             if (localStorage.getItem(id)) {
                 input.value = localStorage.getItem(id);
@@ -164,6 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem(id, input.value);
             });
         });
+        // ラジオボタンのハンドリング（キー名は 'moreThan5Years' と 'applyResident'）
+        const radioKeys = {
+            moreThan5Years: ['iii_more_than_5years_Yes', 'iii_more_than_5years_No'],
+            applyResident: ['iii_apply_residenct_Yes', 'iii_apply_residenct_No']
+        };
         Object.keys(radioKeys).forEach(groupKey => {
             const saved = localStorage.getItem(groupKey);
             if (saved) {
@@ -179,18 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
-        document.getElementById('clearBtn')?.addEventListener('click', () => {
-            fieldIds.forEach(id => {
-                localStorage.removeItem(id);
-                document.getElementById(id).value = '';
-            });
-            Object.keys(radioKeys).forEach(groupKey => {
-                localStorage.removeItem(groupKey);
-                radioKeys[groupKey].forEach(id => {
-                    document.getElementById(id).checked = false;
-                });
-            });
-        });
     }
 
     // --- Navigation: from part1 to part3 ---
@@ -200,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "part3.html";
         });
     }
-    
+
     // --- Navigation: from part3 back to part1 ---
     const backBtn = document.getElementById('backBtn');
     if (backBtn) {
@@ -225,4 +218,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+});
+
+// --- Clear button: 個別のキーごと削除 ---
+document.getElementById('clearBtn')?.addEventListener('click', () => {
+    // part1Ids, part3Ids とラジオグループキーを削除
+    [...part1Ids, ...part3Ids, 'moreThan5Years', 'applyResident'].forEach(key => {
+        localStorage.removeItem(key);
+    });
+    
+    // ページ上のすべての入力要素の値をリセット
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        if (input.type === 'radio' || input.type === 'checkbox') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
 });
