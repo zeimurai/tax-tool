@@ -208,4 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "part1.html";
         });
     }
+
+    // --- Navigation: from 1st agreement to Part1 ---
+    const startBtn = document.getElementById('startBtn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            window.location.href = "part1.html";
+        });
+    }
+
+    // --- Navigation: from 1st agreement to Home ---
+    const backHomeBtn = document.getElementById('backHomeBtn');
+    if (backHomeBtn) {
+        backHomeBtn.addEventListener('click', () => {
+            window.location.href = "part1.html";
+        });
+    }
+
 });

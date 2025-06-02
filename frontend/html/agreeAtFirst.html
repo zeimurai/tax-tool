@@ -2,24 +2,60 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>免責事項</title>
+    <title>Taxumo - Basic & General Info</title>
+    <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/agreement.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/form-style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
+    <script src="../js/main.js"></script>
+    <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 <body>
+    <header>
+        <nav class="menu">
+            <a href="../index.html" id="top-left-logo">
+                <img src="../image/logo/taxumo-mark.png" alt="icon" width="50" height="auto">
+                <h1><img src="../image/logo/taxumo-letter.png" alt="icon" width="150" height="auto"></h1>
+            </a>
+            <!-- hamburger menu -->
+            <div class="hamburger-menu" onclick="toggleMenu(this)">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            <ul id="menu-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu(element) {
+            element.classList.toggle("active");
+        }
+    </script>
     <main>
         <section class="disclaimer">
             <h1>免責事項</h1>
             <p>このウェブサイトは、米国税務申告に関する情報を提供することを目的としていますが、法的なアドバイスを提供するものではありません。税務に関する具体的な質問や問題については、米国公認会計士(CPA)、専門の税理士や法律家に相談してください。</p>
             <p>当サイトの情報は、正確性や完全性を保証するものではありません。利用者は自己の責任において情報を使用し、当サイトの利用によって生じたいかなる損害についても、当サイト運営者は一切の責任を負いません。</p>
-            <p>また、当サイトの内容は予告なく変更されることがあります。最新の情報を確認するために、定期的にサイトを訪問してください。</p>
+            <p>また、当サイトの内容は予告なく変更されることがありますのでご了承ください。</p>
             <p>この免責事項は、当サイトを利用することにより、利用者が同意したものとみなされます。</p>
+            <h1>Disclaimer</h1>
+            <p>Taxumo is an educational assistance tool provided solely for general informational purposes. It is not authorized by the IRS or any government agency, nor does it constitute tax, legal, or accounting advice.</p>
+            <P>The generated IRS Form 8843 and its contents are to be reviewed and submitted by the user at their own discretion and responsibility.</P>
+            <P>Each individual’s tax situation may differ, and you are strongly encouraged to consult a certified tax professional or CPA if you have any specific questions or concerns.</P>
+            <P>This disclaimer is deemed to be accepted by the user upon creating or downloading the form.</P>
         </section>
-        <section class="navigation">
-            <h2>次のステップ</h2>
-            <ul>
-                <li><a href="html/part1.html">Form 8843の作成を始める</a></li>
-                <li><a href="index.html">ホームに戻る</a></li>
-            </ul>  
+        <section class="agreement_navigation">
+            <button type="button" id="backhomeBtn">ホームへ戻る</button>
+            <button type="button" id="startBtn">同意してフォーム作成へ進む</button>
         </section>
     </main>
 </body>
