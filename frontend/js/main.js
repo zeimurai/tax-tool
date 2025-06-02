@@ -17,7 +17,8 @@ const part3Ids = [
 // --- PDF generation and download functionality ---
 document.getElementById('fillButton')?.addEventListener('click', async () => {
     try {
-        const pdfUrl = 'http://localhost:5500/frontend/pdf/original_f8843.pdf';
+        // 現在のオリジンからの絶対パスで PDF ファイルを指定
+        const pdfUrl = `${window.location.origin}/frontend/pdf/original_f8843.pdf`;
         const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
         const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
         const form = pdfDoc.getForm();
@@ -28,7 +29,7 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
             console.log('Found field:', field.getName());
         });
 
-        // Populate PDF fields from localStorage (example for Part 1)
+        // PDF の各フィールドを localStorage から取得した値で埋める
         const beginningDate = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_1[0]');
         const endingDate = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_2[0]');
         const filingYear = form.getTextField('topmostSubform[0].Page1[0].Pg1Header[0].f1_3[0]');
@@ -54,8 +55,7 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
 
 
         const i_exclude_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
-        
-        // Part 3 Students (example fields)
+        // Part 3 Students (例)
         const iii_school_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_30[0]');
         const iii_school_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_31[0]');
         const iii_school_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_32[0]');
@@ -76,7 +76,7 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         const iii_apply_residenct_Yes_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_43[0]');
         const iii_apply_residenct_Yes_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_44[0]');
 
-        // Populate each PDF field with the corresponding value from localStorage
+        // 各フィールドに localStorage の値を設定
         beginningDate.setText(localStorage.getItem('beginningDate') || '');
         endingDate.setText(localStorage.getItem('endingDate') || '');
         filingYear.setText(localStorage.getItem('filingYear') || '');
@@ -120,7 +120,7 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         iii_apply_residenct_Yes_info_2.setText(localStorage.getItem('iii_apply_residenct_Yes_info_2') || '');
         iii_apply_residenct_Yes_info_3.setText(localStorage.getItem('iii_apply_residenct_Yes_info_3') || '');
 
-        // Save the modified PDF and trigger download
+        // PDF の修正内容を保存してダウンロードをトリガー
         const modifiedPdfBytes = await pdfDoc.save();
         const blob = new Blob([modifiedPdfBytes], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
@@ -131,6 +131,59 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+
+        // 既にThank Youメッセージが表示されていなければ作成する
+        if (!document.getElementById('thankYouMessage')) {
+            const thankYouDiv = document.createElement('div');
+            thankYouDiv.id = 'thankYouMessage';
+            thankYouDiv.textContent = "Thank you for using our service!";
+            thankYouDiv.style.fontSize = '24px';
+            thankYouDiv.style.fontWeight = 'bold';
+            thankYouDiv.style.color = '#333';
+            thankYouDiv.style.textAlign = 'center';
+            thankYouDiv.style.padding = '20px';
+            thankYouDiv.style.marginBottom = '50px';
+            // フォーカス可能にするため tabindex 属性を設定
+            thankYouDiv.setAttribute('tabindex', '-1');
+            document.body.appendChild(thankYouDiv);
+
+            /**
+             * イージング関数（easeInOutQuad）
+             */
+            function easeInOutQuad(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t + b;
+                t--;
+                return -c/2 * (t*(t-2) - 1) + b;
+            }
+
+            /**
+             * 指定要素に対して、duration ミリ秒かけてゆっくりスクロールする
+             */
+            function slowScrollTo(element, duration = 2000) {
+                const start = window.scrollY;
+                const end = element.getBoundingClientRect().top + window.scrollY;
+                const change = end - start;
+                let currentTime = 0;
+                const increment = 20;
+                
+                function animateScroll() {
+                    currentTime += increment;
+                    const val = easeInOutQuad(currentTime, start, change, duration);
+                    window.scrollTo(0, val);
+                    if (currentTime < duration) {
+                        setTimeout(animateScroll, increment);
+                    }
+                }
+                animateScroll();
+            }
+
+            // ゆっくりスクロールしてから、スクロール完了後にフォーカスを当てる
+            slowScrollTo(thankYouDiv, 2000);
+            setTimeout(() => {
+                thankYouDiv.focus();
+            }, 2000);
+        }
     } catch (error) {
         console.error('Error filling PDF:', error);
     }
@@ -187,38 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Navigation: from part1 to part3 ---
-    const nextBtn = document.getElementById('nextBtn');
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            window.location.href = "part3.html";
-        });
-    }
-
-    // --- Navigation: from part3 back to part1 ---
-    const backBtn = document.getElementById('backBtn');
-    if (backBtn) {
-        backBtn.addEventListener('click', () => {
-            window.location.href = "part1.html";
-        });
-    }
-
-    // --- Navigation: from 1st agreement to Part1 ---
-    const startBtn = document.getElementById('startBtn');
-    if (startBtn) {
-        startBtn.addEventListener('click', () => {
-            window.location.href = "part1.html";
-        });
-    }
-
-    // --- Navigation: from 1st agreement to Home ---
-    const backHomeBtn = document.getElementById('backHomeBtn');
-    if (backHomeBtn) {
-        backHomeBtn.addEventListener('click', () => {
-            window.location.href = "part1.html";
-        });
-    }
-    
+    // data deletion: clear localStorage
     // --- Clear button: 個別のキーごと削除 ---
     const clearBtn = document.getElementById('clearBtn');
     if (clearBtn) {
@@ -239,20 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
 
-// --- Clear button: すべてのキーを削除 ---
-document.getElementById('clearAllBtn')?.addEventListener('click', () => {
-    // localStorage のすべてのキーを削除
-    localStorage.clear();
-
-    // ページ上のすべての入力要素の値をリセット
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        if (input.type === 'radio' || input.type === 'checkbox') {
-            input.checked = false;
-        } else {
-            input.value = '';
-        }
-    });
+    
 });

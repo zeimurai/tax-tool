@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="../css/agreement.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form-style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
     <script src="../js/main.js"></script>
+    <script src="../js/router.js"></script>
     <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 <body>
@@ -28,8 +26,8 @@
                 <div class="hamburger-line"></div>
             </div>
             <ul id="menu-list">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">Form 8843作成</a></li>
+                <li><a id="headerHomeBtn" href="javascript:void(0)">HOME</a></li>
+                <li><a id="headerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
                 <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
                 <!-- Switch JPN EN -->
                 <!-- <li><a href="#"></a></li>
@@ -63,7 +61,7 @@
         </section>
         <section class="agreement_navigation">
             <button type="button" id="backhomeBtn">ホームへ戻る</button>
-            <button type="button" id="startBtn">同意してフォーム作成へ進む</button>
+            <button type="button" id="formStartBtn">同意してフォーム作成へ進む</button>
         </section>
     </main>
 </body>
