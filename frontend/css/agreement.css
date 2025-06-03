@@ -9,6 +9,12 @@
     font-size: 2em;
     margin-bottom: 10px;
 }
+.disclaimer h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: left;
+}
 
 .disclaimer p {
     margin: 10px 0;
@@ -23,7 +29,30 @@
     margin-top: 20px;
 }
 
-.disclaimer ul {
-    list-style-type: disc;
-    padding-left: 20px;
+.usage-notice ul {
+  list-style-type: disc; 
+  padding-left: 2.2em; 
+  font-weight: bold;
+}
+
+.usage-notice ul ul {
+  list-style-type: circle; 
+  padding-left: 1.5em;  
+  font-weight: normal;
+}
+
+.instruction-submit ol {
+  list-style-type: decimal; 
+  padding-left: 2.2em; 
+  font-weight: bold;
+}
+
+.instruction-submit blockquote {
+  border-left: 4px solid #ccc; 
+  padding-left: 1.5em; 
+  margin: 1em 0;
+  color: #555;            
+  font-style: italic;         
+  font-weight: normal;
+  background-color: #f9f9f9;  
 }

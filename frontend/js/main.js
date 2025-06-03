@@ -263,4 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
+// --- Clear and Go Home button ---
+document.getElementById('clearAndHomeBtn')?.addEventListener('click', () => {
+    // part1Ids, part3Ids reset radio group keys
+    [...part1Ids, ...part3Ids, 'moreThan5Years', 'applyResident'].forEach(key => {
+        localStorage.removeItem(key);
+    });
+    
+    // Reset all input fields on the page
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        if (input.type === 'radio' || input.type === 'checkbox') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+
+    // back to home page
+    window.location.href = "index.html"; 
 });
