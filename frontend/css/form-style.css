@@ -63,6 +63,15 @@ label {
     font-weight: bold;
 }
 
+legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.radio-group {
+    margin-bottom: 1rem;
+}
 small a {
     color: #007bff;
     text-decoration: none;
