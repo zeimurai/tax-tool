@@ -7,9 +7,7 @@
     <title>Taxumo - Home</title>
     <link rel="stylesheet" href="./css/destyle.css">
     <link rel="stylesheet" href="./css/home.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
+    <script src="./js/router.js"></script>
     <link rel="icon" href="./image/logo/taxumo-mark.png" type="image/png">
 </head>
 
@@ -30,9 +28,9 @@
             </div>
 
             <ul id="menu-list">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">Form 8843作成</a></li>
-                <li><a href="#">Form 8843とは？</a></li>
+                <li><a id="headerHomeBtn" href="javascript:void(0)">HOME</a></li>
+                <li><a id="headerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
+                <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
                 <!-- Switch JPN EN -->
                 <!-- <li><a href="#"></a></li>
             <li><a href="#"></a></li> -->
@@ -54,7 +52,7 @@
                 <h1>日本人留学生向けの米国税務申告ガイド</h1>
                 <h2>Form 8843はTaxumoにお任せ！</h2>
             </div>
-            <h3><a href="html/part1.html">始める</a></h3>
+            <h3><a id="goToAgreementBtn1" href="javascript:void(0)">始める</a></h3>
         </section>
         <!-- サービス概要 -->
         <section class="intro-service">
@@ -108,7 +106,7 @@
 
 
         <!-- Form作成開始ボタン -->
-        <h3 id="start"><a href="html/part1.html">始める</a></h3>
+        <h3 id="start"><a id="goToAgreementBtn2" href="javascript:void(0)">始める</a></h3>
 
     </main>
 
@@ -116,15 +114,14 @@
         <div class="footer-menu">
             <h2>MENU</h2>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">Form 8843作成</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a id="footerHomeBtn" href="javascript:void(0)">Home</a></li>
+                <li><a id="footerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
+                <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
             </ul>
         </div>
         <div class="footer-content">
             <p>© 2025 Taxumo. All rights reserved.</p>
-            <p>Privacy Policy</p>
-            <p>Terms of Service</p>
+            <a id="footerTermsBtn" href="javascript:void(0)">Terms of Service</a></p>
         </div>
         <div class="footer-logo">
             <img src="./image/logo/taxumo-logo.png" alt="icon">

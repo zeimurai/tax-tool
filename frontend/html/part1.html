@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form-style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
     <script src="../js/main.js"></script>
+    <script src="../js/router.js"></script>
     <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 
@@ -29,10 +27,13 @@
                 <div class="hamburger-line"></div>
             </div>
             <ul id="menu-list">
-                <li><a href="../index.html">HOME</a></li>
-                <li><a href="#">Form 8843作成</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a id="headerHomeBtn" href="javascript:void(0)">HOME</a></li>
+                <li><a id="headerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
+                <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
+                <!-- Switch JPN EN -->
+                <!-- <li><a href="#"></a></li>
+            <li><a href="#"></a></li> -->
+            <!-- <li><a href="#">Login</a></li> -->
             </ul>
         </nav>
     </header>
@@ -94,29 +95,29 @@
             <div class="section">
                 <h2>Part 1 General Info</h2>
                 <div class="field">
-                    <label for="i_visaType_entry_date">ビザ種類 / 入国日 (Visa Type/Entry Date)<span style="color:red;"> * </span>:</label>
+                    <label for="i_visaType_entry_date">1a）ビザ種類 / 入国日 (Visa Type/Entry Date)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_visaType_entry_date" placeholder="例: F-1, 08/01/2023">
-                    <small>使用しているビザの種類と入国日を入力してください。日付は月・日・年の順で記載。</small>
+                    <small>使用しているビザの種類と番号(F1, F2など)と入国日を入力してください。日付は月・日・年の順で記載。</small>
                 </div>
                 <div class="field">
-                    <label for="i_cur_nonimmi_status">現在の非移民ビザの種類、あれば変更前のビザと変更日 (Current Nonimmigrant Status, Change in
+                    <label for="i_cur_nonimmi_status">1b）現在の非移民ビザの種類、あれば変更前のビザと変更日 (Current Nonimmigrant Status, Change in
                         status and the date if any)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_cur_nonimmi_status" placeholder="例: F-1">
                     <small>現在の非移民ビザの種類を入力してください。また、変更したことがあれば、以前のビザの種類と変更日も併記してください。
                         <br />(例: F-1 → H-1B 10/27/2024)</small></small>
                 </div>
                 <div class="field">
-                    <label for="i_citizen_country">市民権保有国 (Citizen Country)<span style="color:red;"> * </span>:</label>
+                    <label for="i_citizen_country">2）市民権保有国 (Citizen Country)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_citizen_country" placeholder="例: Japan">
                     <small>市民権を有する国を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="i_passportCountry">パスポート発行国 (Passport Country)<span style="color:red;"> * </span>:</label>
+                    <label for="i_passportCountry">3a）パスポート発行国 (Passport Country)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_passportCountry" placeholder="例: Japan">
                     <small>パスポートを発行した国を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="i_passportNumber">パスポート番号 (Passport Number)<span style="color:red;"> * </span>:</label>
+                    <label for="i_passportNumber">3b）パスポート番号 (Passport Number)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_passportNumber" placeholder="例: X123456789">
                     <small>パスポート番号を入力してください。複数ある場合は Passport No (Japan), Passport No (France)のように記載。</small>
                 </div>
@@ -133,7 +134,7 @@
                 <div id="container"></div>
                 <script src="../js/daycalc.js"></script>
 
-                <label for="i_passportNumber">過去3年間の滞在日数:</label>
+                <label for="i_passportNumber">4a）過去3年間の滞在日数:</label>
                 <small>正確な日数を調べるためには<a href="https://i94.cbp.dhs.gov/home"
                         target="_blank">I-94</a>で自身の記録を取得し、上の日付計算から確認できます。</small>
                 <small>他書類や昨年度のForm 8843などで滞在日数がわかる場合は、次の項目で直接入力してください。</small>
@@ -156,7 +157,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="i_exclude_stays_2024">除外すべき2024年滞在日数 (Exclude Days in 2024)<span style="color:red;"> * </span>:</label>
+                    <label for="i_exclude_stays_2024">4b）除外すべき2024年滞在日数 (Exclude Days in 2024)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_exclude_stays_2024" placeholder="例：200">
 
                     <small>除外対象の2024年滞在日数があれば、入力してください。ほとんどのF/Jビザ(Student)保持者は滞在年数が５年以内の場合、Jビザ(Teacher/Trainee)保持者は滞在が２年以内の場合、全て除外対象の滞在日数となるので、2024年の滞在日数をそのまま入力してください。不明点や懸念点がある場合やビザタイプの変更など別ケースに該当する場合、詳しくは<a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test#:~:text=U.S.%20airspace.-,Exempt%20individual,-Do%20not%20count"

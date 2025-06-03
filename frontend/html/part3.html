@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form-style.css">
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="../js/main.js" defer></script>
+    <script src="../js/router.js" defer></script>
     <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 <body>
@@ -25,9 +25,13 @@
                 <div class="hamburger-line"></div>
             </div>
             <ul id="menu-list">
-                <li><a href="../index.html">HOME</a></li>
-                <li><a href="#">Form 8843作成</a></li>
-                <li><a href="#">Form 8843とは？</a></li>
+                <li><a id="headerHomeBtn" href="javascript:void(0)">HOME</a></li>
+                <li><a id="headerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
+                <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
+                <!-- Switch JPN EN -->
+                <!-- <li><a href="#"></a></li>
+            <li><a href="#"></a></li> -->
+            <!-- <li><a href="#">Login</a></li> -->
             </ul>
         </nav>
     </header>
@@ -44,7 +48,7 @@
             <div class="section">
                 <h2>School Information</h2>
                 <div class="field">
-                    <label for="iii_school_info_1">学校住所 (School Info):</label>
+                    <label for="iii_school_info_1">9）学校住所 (School Info)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="iii_school_info_1" placeholder="例: ABC University">
                 <!-- </div>
                 <div class="field"> -->
@@ -59,7 +63,7 @@
                 <h2>Director Information</h2>
                 <div class="field">
 
-                    <label for="iii_director_info_1">学校責任者情報 (Director Info):</label>
+                    <label for="iii_director_info_1">10）学校責任者情報 (Director Info)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="iii_director_info_1" placeholder="例: Dr. Jane Smith, Director, International Programs">
                 <!-- </div>
                 <div class="field"> -->
@@ -73,41 +77,44 @@
             </div>
             <div class="section">
                 <h2>Visa Information</h2>
-                <div class="field">
-                    <label for="iii_visa_type_2018">2018年ビザタイプ (Visa Type 2018):</label>
+                <small>2018年から2023年までの各期間に保持していたビザがあれば全て入力してください。</small>
+                <div class="visa-type-container">
+                    <div class="field">
+                    <label for="iii_visa_type_2018">2018:</label>
                     <input type="text" id="iii_visa_type_2018" placeholder="例: F">
-                    <small>2018年に適用されるビザの種類を入力してください。</small>
+                    <small>2018年に保持していたビザの種類を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="iii_visa_type_2019">2019年ビザタイプ (Visa Type 2019):</label>
-                    <input type="text" id="iii_visa_type_2019" placeholder="例: F">
-                    <small>2019年に適用されるビザの種類を入力してください。</small>
+                    <label for="iii_visa_type_2019">2019:</label>
+                    <input type="text" id="iii_visa_type_2019" placeholder="例: J">
+                    <small>2019年に保持していたビザの種類を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="iii_visa_type_2020">2020年ビザタイプ (Visa Type 2020):</label>
-                    <input type="text" id="iii_visa_type_2020" placeholder="例: F">
-                    <small>2020年に適用されるビザの種類を入力してください。</small>
+                    <label for="iii_visa_type_2020">2020:</label>
+                    <input type="text" id="iii_visa_type_2020" placeholder="例: Q">
+                    <small>2020年に保持していたビザの種類を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="iii_visa_type_2021">2021年ビザタイプ (Visa Type 2021):</label>
-                    <input type="text" id="iii_visa_type_2021" placeholder="例: F">
-                    <small>2021年に適用されるビザの種類を入力してください。</small>
+                    <label for="iii_visa_type_2021">2021:</label>
+                    <input type="text" id="iii_visa_type_2021" placeholder="例: M">
+                    <small>2021年に保持していたビザの種類を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="iii_visa_type_2022">2022年ビザタイプ (Visa Type 2022):</label>
+                    <label for="iii_visa_type_2022">2022:</label>
                     <input type="text" id="iii_visa_type_2022" placeholder="例: F">
-                    <small>2022年に適用されるビザの種類を入力してください。</small>
+                    <small>2022年に保持していたビザの種類を入力してください。</small>
                 </div>
                 <div class="field">
-                    <label for="iii_visa_type_2023">2023年ビザタイプ (Visa Type 2023):</label>
+                    <label for="iii_visa_type_2023">2023:</label>
                     <input type="text" id="iii_visa_type_2023" placeholder="例: F">
-                    <small>2023年に適用されるビザの種類を入力してください。</small>
+                    <small>2023年に保持していたビザの種類を入力してください。</small>
+                </div>
                 </div>
             </div>
             <div class="section">
                 <h2>Additional Student Questions</h2>
                 <fieldset>
-                    <legend>過去5暦年のうち、F-1/J-1滞在が合計5年を超えましたか？ (Have you studied for more than 5 years?)</legend>
+                    <legend>過去5暦年のうち、F/J滞在が合計5年を超えましたか？ (Have you studied for more than 5 years?) <span style="color:red;"> * </span></legend>
                     <div class="radio-group">
                         <label for="iii_more_than_5years_Yes">
                             <input type="radio" name="moreThan5Years" value="yes" id="iii_more_than_5years_Yes">
@@ -122,7 +129,7 @@
                 </fieldset>
 
                 <fieldset>
-                    <legend>米国住民カードの申請をしましたか？ (Did you apply for a resident card?)</legend>
+                    <legend>米国住民カードの申請をしましたか？ (Did you apply for a resident card?) <span style="color:red;"> * </span></legend>
                     <div class="radio-group">
                         <label for="iii_apply_residenct_Yes">
                             <input type="radio" name="applyResident" value="yes" id="iii_apply_residenct_Yes">
@@ -151,7 +158,7 @@
 
             <button type="button" id="backBtn">前へ戻る</button>
             <button type="button" id="clearBtn">入力を全て削除</button>
-            <button type="button" id="fillButton">f8843ダウンロード</button>
+            <button type="button" id="goToAgreeDownloadBtn">次へ進む</button>
           
         </form>
     </main>
