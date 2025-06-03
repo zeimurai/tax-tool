@@ -2,14 +2,16 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>免責事項</title>
+    <title>Terms of Service</title>
     <link rel="stylesheet" href="../css/destyle.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/agreement.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form-style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"> -->
     <script src="../js/main.js"></script>
-    <script src="../js/router.js"></script>
     <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
 </head>
 <body>
@@ -26,13 +28,9 @@
                 <div class="hamburger-line"></div>
             </div>
             <ul id="menu-list">
-                <li><a id="headerHomeBtn" href="javascript:void(0)">HOME</a></li>
-                <li><a id="headerAgreementBtn" href="javascript:void(0)">Form 8843作成</a></li>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
                 <li><a href="https://ryugaku.entama.jp/2024/04/f1-student-tax-form-8843-and-1040nr/">Form 8843とは？</a></li>
-                <!-- Switch JPN EN -->
-                <!-- <li><a href="#"></a></li>
-            <li><a href="#"></a></li> -->
-            <!-- <li><a href="#">Login</a></li> -->
             </ul>
         </nav>
     </header>
@@ -44,7 +42,7 @@
     <main>
         <section class="disclaimer">
             <h1>免責事項</h1>
-            <p>このウェブサイトは、学生ビザ保持者(主にF/Jビザ)の米国税務申告に関する情報を提供することを目的としていますが、法的なアドバイスを提供するものではありません。税務に関する具体的な質問や問題については、米国公認会計士(CPA)、専門の税理士や法律家に相談してください。</p>
+            <p>このウェブサイトは、米国税務申告に関する情報を提供することを目的としていますが、法的なアドバイスを提供するものではありません。税務に関する具体的な質問や問題については、米国公認会計士(CPA)、専門の税理士や法律家に相談してください。</p>
             <p>当サイトの情報は、正確性や完全性を保証するものではありません。利用者は自己の責任において情報を使用し、当サイトの利用によって生じたいかなる損害についても、当サイト運営者は一切の責任を負いません。</p>
             <p>また、当サイトの内容は予告なく変更されることがありますのでご了承ください。</p>
             <p>この免責事項は、<span>フォーム作成・ダウンロード</span>することにより、利用者が同意したものとみなされます。</p>
@@ -53,7 +51,6 @@
             <P>The generated IRS Form 8843 and its contents are to be reviewed and submitted by the user at their own discretion and responsibility.</P>
             <P>Each individual’s tax situation may differ, and you are strongly encouraged to consult a certified tax professional or CPA if you have any specific questions or concerns.</P>
             <P>This disclaimer is deemed to be accepted by the user upon creating or downloading the form.</P>
-
             <section class="usage-notice">
             <h1>使用上の注意</h1>
             <p>Taxumoは、以下の学生ビザで米国に滞在している「非居住者（nonresident alien）」の学生向けに設計されたForm 8843作成サポートツールです：</p>
@@ -91,12 +88,40 @@
                 </ul>
             </ul>
             </section>
-
-        </section>
-        <section class="agreement_navigation">
-            <button type="button" id="backhomeBtn">ホームへ戻る</button>
-            <button type="button" id="formStartBtn">同意してフォーム作成へ進む</button>
+            <section class="instruction-submit">
+                <h1>Form 8843の提出方法</h1>
+                <p>Taxumoで作成したForm 8843は、IRS（米国内国歳入庁）に郵送で提出する必要があります。以下の手順に従ってください：</p>
+                <h2>提出手順</h2>
+                <ol>
+                    <li>フォームをダウンロードし、印刷</li>
+                    <li>封筒に IRS の住所を記入</li>
+                    <blockquote>
+                        <p>Department of the Treasury</p>
+                        <p>Internal Revenue Service Center</p>
+                        <p>Austin, TX 73301-0215</p>
+                    </blockquote>
+                    <li>上記の住所に郵送</li>
+                </ol>
+            </section>
         </section>
     </main>
+    <footer>
+        <div class="footer-menu">
+            <h2>MENU</h2>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">Form 8843作成</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <p>© 2025 Taxumo. All rights reserved.</p>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+        </div>
+        <div class="footer-logo">
+            <img src="./image/logo/taxumo-logo.png" alt="icon">
+        </div>
+    </footer>
 </body>
 </html>

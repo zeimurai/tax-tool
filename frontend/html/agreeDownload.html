@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>免責事項同意</title>
+    <title>免責事項</title>
     <link rel="stylesheet" href="../css/destyle.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/agreement.css">
@@ -50,15 +50,64 @@
             <P>The generated IRS Form 8843 and its contents are to be reviewed and submitted by the user at their own discretion and responsibility.</P>
             <P>Each individual’s tax situation may differ, and you are strongly encouraged to consult a certified tax professional or CPA if you have any specific questions or concerns.</P>
             <P>This disclaimer is deemed to be accepted by the user upon creating or downloading the form.</P>
-            <h1>Taxumoを使用できない方</h1>
+            <section class="usage-notice">
+            <h1>使用上の注意</h1>
+            <p>Taxumoは、以下の学生ビザで米国に滞在している「非居住者（nonresident alien）」の学生向けに設計されたForm 8843作成サポートツールです：</p>
+            <h2>Taxumoの対象者</h2>
             <ul>
-                <li>Fビザで滞在中、アメリカ市民との婚姻・婚約によりMFJ (Married Filing Jointly)を選択した場合</li>
-                <li>グリーンカードを取得済みの場合</li>
+                <li>F-1 / F-2（学生およびその家族）</li>
+                <li>M-1 / M-2（職業訓練学生およびその家族）</li>
+                <li>J-1 / J-2（※学生カテゴリーに該当する場合のみ）</li>
             </ul>
+            <p>以下のいずれかに該当する方は、Taxumoの対象外であり、Form 8843の提出が不要または不適切な可能性があります。</p>
+            <h2>Taxumoをご利用いただけないケース一覧</h2>
+            <ul>
+                <li>ビザ上はF/M/Jでも、税法上「非居住者ではない」場合</li>
+                <ul>
+                    <li>米国市民または居住者（グリーンカード保有者など）と結婚し、MFJ（Married Filing Jointly）を選択した</li>
+                    <li>グリーンカード（永住権）を取得済み</li>
+                    <li>Substantial Presence Test（SPT）を満たし、非居住者ではなくなった</li>
+                    <li>既に税法上の居住者（Resident Alien）としてForm 1040で申告済み</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>対象ビザに該当しない、または学生以外の目的で滞在している場合</li>
+                <ul>
+                    <li>J-1 / J-2ビザのうち、教師・研究者・研修生カテゴリーの方（→Form 8843のPart II対象ですが、Taxumoは対応していません）</li>
+                    <li>H-1Bなどの就労ビザ保持者</li>
+                    <li>OPT後にF-1以外のビザに変更した方</li>
+                    <li>その他、学生でない目的での滞在者（Qビザなど）</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Fビザでの滞在が5暦年を超え、SPTの除外対象でなくなった方</li>
+                <ul>
+                    <li>原則として、F-1/F-2ビザでの滞在は最初の5暦年間までがSPT除外対象です</li>
+                    <li>6年目以降は居住者扱いとなる可能性があり、Form 8843の提出対象外となる場合があります</li>
+                </ul>
+            </ul>
+            </section>
+            <section class="instruction-submit">
+                <h1>Form 8843の提出方法</h1>
+                <p>Taxumoで作成したForm 8843は、IRS（米国内国歳入庁）に郵送で提出する必要があります。以下の手順に従ってください：</p>
+                <h2>提出手順</h2>
+                <ol>
+                    <li>フォームをダウンロードし、印刷</li>
+                    <li>一番下の欄に直筆でサインし、日付を入力</li>
+                    <li>封筒に IRS の住所を記入</li>
+                    <blockquote>
+                        <p>Department of the Treasury</p>
+                        <p>Internal Revenue Service Center</p>
+                        <p>Austin, TX 73301-0215</p>
+                    </blockquote>
+                    <li>上記の住所に郵送</li>
+                </ol>
+            </section>
         </section>
         <section class="agreement_navigation">
             <button type="button" id="nextBtn">前へ戻る</button>
-            <button type="button" id="clearBtn">作成を中断・消去</button>
+            <button type="button" id="clearAndHomeBtn">中断してデータ消去</button>
+
             <button type="button" id="fillButton">同意してダウンロードする</button>
         </section>
     </main>
