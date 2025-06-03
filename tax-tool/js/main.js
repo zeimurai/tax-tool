@@ -18,7 +18,8 @@ const part3Ids = [
 document.getElementById('fillButton')?.addEventListener('click', async () => {
     try {
         // 現在のオリジンからの絶対パスで PDF ファイルを指定
-        const pdfUrl = `${window.location.origin}/frontend/pdf/original_f8843.pdf`;
+        // path for deployment: /tax-tool/pdf/original_f8843.pdf
+        const pdfUrl = `${window.location.origin}/tax-tool/pdf/original_f8843.pdf`;
         const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
         const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
         const form = pdfDoc.getForm();
@@ -178,14 +179,28 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
                 animateScroll();
             }
 
-            // ゆっくりスクロールしてから、スクロール完了後にフォーカスを当てる
+            // ゆっくりスクロールして、スクロール完了後にフォーカスを当てる
             slowScrollTo(thankYouDiv, 2000);
             setTimeout(() => {
                 thankYouDiv.focus();
             }, 2000);
         }
     } catch (error) {
-        alert('Error filling PDF: ' + error);
+        alert('PDFの生成またはダウンロード中にエラーが発生しました:\n' + error);
+        // エラーが発生した場合、ユーザーに対処法を伝えるメッセージを表示する
+        // const errorMsg = document.createElement('div');
+        // errorMsg.id = 'pdfErrorMessage';
+        // errorMsg.style.fontSize = '18px';
+        // errorMsg.style.fontWeight = 'bold';
+        // errorMsg.style.color = 'red';
+        // errorMsg.style.textAlign = 'center';
+        // errorMsg.style.marginTop = '20px';
+        // errorMsg.style.padding = '10px';
+        // errorMsg.textContent = 'PDFの生成またはダウンロード中にエラーが発生しました。日本語や特殊文字を含む場合、文字エンコードの問題が原因となっている可能性があります。使用している文字に注意してください。';
+        const errorMsg = document.getElementById('pdfErrorMessage');
+        errorMsg.textContent = 'PDFの生成またはダウンロード中にエラーが発生しました。日本語や全角英数字、特殊文字等は含めず、やり直してください。';
+        errorMsg.style.display = 'block';
+        // document.body.appendChild(errorMsg);
     }
 });
 

@@ -11,7 +11,17 @@
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/router.js"></script>
-    <link rel="icon" href="../../frontend/image/logo/taxumo-mark.png" type="image/png">
+    <link rel="icon" href="../../tax-tool/image/logo/taxumo-mark.png" type="image/png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQM5PJKJGV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BQM5PJKJGV');
+    </script>
 </head>
 <body>
     <header>
@@ -104,6 +114,9 @@
                 </ol>
             </section>
         </section>
+
+        <div id="pdfErrorMessage" style="display:none; font-size:18px; font-weight:bold; color:red; text-align:center; margin-top:20px; padding:10px;"></div>
+
         <section class="agreement_navigation">
             <button type="button" id="nextBtn">前へ戻る</button>
             <button type="button" id="clearAndHomeBtn">中断してデータ消去</button>
