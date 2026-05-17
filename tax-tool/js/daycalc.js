@@ -1,4 +1,4 @@
-const years = [2024, 2023, 2022];
+const years = [2025, 2024, 2023];
 
 function createYearSection(year) {
     const section = document.createElement('div');

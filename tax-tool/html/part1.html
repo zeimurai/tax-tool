@@ -62,18 +62,18 @@
                 <div class="field">
                     <label for="beginningDate">フォーム対象期間の開始日 (Beginning Date)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="beginningDate" placeholder="例: January 1">
-                    <small>フォームの期間の開始日を入力してください。2024年の途中にビザを取得して入国した場合は最初の入国日を入力し、2023年以前から継続してビザを保持してタイダイしている場合はJanuary
+                    <small>フォームの期間の開始日を入力してください。2025年の途中にビザを取得して入国した場合は最初の入国日を入力し、2024年以前から継続してビザを保持して滞在している場合はJanuary
                         1と入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="endingDate">終了日 (Ending Date)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="endingDate" placeholder="例: December 31">
-                    <small>フォームの期間の終了日を入力してください。2024年中に卒業等に伴って本帰国（在学中の一時帰国は除外）した場合は出国日を入力し、翌年まで継続の場合はDecember
+                    <small>フォームの期間の終了日を入力してください。2025年中に卒業等に伴って本帰国（在学中の一時帰国は除外）した場合は出国日を入力し、翌年まで継続の場合はDecember
                         31と入力してください。</small>
                 </div>
                 <div class="field">
                     <label for="filingYear">西暦の下２桁で対象年度を入力 (Filing Year, Last 2 Digits of Calendar Year)<span style="color:red;"> * </span>:</label>
-                    <input type="text" id="filingYear" placeholder="例: 24">
+                    <input type="text" id="filingYear" placeholder="例: 25">
                     <small>申告対象の年度を入力してください。</small>
                 </div>
                 <div class="field">
@@ -106,7 +106,7 @@
                 <h2>Part 1 General Info</h2>
                 <div class="field">
                     <label for="i_visaType_entry_date">1a）ビザ種類 / 入国日 (Visa Type/Entry Date)<span style="color:red;"> * </span>:</label>
-                    <input type="text" id="i_visaType_entry_date" placeholder="例: F-1, 08/01/2023">
+                    <input type="text" id="i_visaType_entry_date" placeholder="例: F-1, 08/01/2025">
                     <small>使用しているビザの種類と番号(F1, F2など)と入国日を入力してください。日付は月・日・年の順で記載。</small>
                 </div>
                 <div class="field">
@@ -114,7 +114,7 @@
                         status and the date if any)<span style="color:red;"> * </span>:</label>
                     <input type="text" id="i_cur_nonimmi_status" placeholder="例: F-1">
                     <small>現在の非移民ビザの種類を入力してください。また、変更したことがあれば、以前のビザの種類と変更日も併記してください。
-                        <br />(例: F-1 → H-1B 10/27/2024)</small></small>
+                        <br />(例: F-1 → H-1B 10/27/2025)</small></small>
                 </div>
                 <div class="field">
                     <label for="i_citizen_country">2）市民権保有国 (Citizen Country)<span style="color:red;"> * </span>:</label>
@@ -150,6 +150,11 @@
                 <small>他書類や昨年度のForm 8843などで滞在日数がわかる場合は、次の項目で直接入力してください。</small>
                 <div class="day-stayed-container">
                     <div class="field day_stayed">
+                        <label for="i_stays_2025">2025年滞在日数 (Days Stayed in 2025)<span style="color:red;"> * </span>:</label>
+                        <input type="text" id="i_stays_2025" placeholder="例：200">
+                        <small>2025年の滞在日数を入力</small>
+                    </div>
+                    <div class="field day_stayed">
                         <label for="i_stays_2024">2024年滞在日数 (Days Stayed in 2024)<span style="color:red;"> * </span>:</label>
                         <input type="text" id="i_stays_2024" placeholder="例：200">
                         <small>2024年の滞在日数を入力</small>
@@ -159,18 +164,13 @@
                         <input type="text" id="i_stays_2023" placeholder="例：200">
                         <small>2023年の滞在日数を入力</small>
                     </div>
-                    <div class="field day_stayed">
-                        <label for="i_stays_2022">2022年滞在日数 (Days Stayed in 2022)<span style="color:red;"> * </span>:</label>
-                        <input type="text" id="i_stays_2022" placeholder="例：200">
-                        <small>2022年の滞在日数を入力</small>
-                    </div>
                 </div>
 
                 <div class="field">
-                    <label for="i_exclude_stays_2024">4b）除外すべき2024年滞在日数 (Exclude Days in 2024)<span style="color:red;"> * </span>:</label>
-                    <input type="text" id="i_exclude_stays_2024" placeholder="例：200">
+                    <label for="i_exclude_stays_2025">4b）除外すべき2025年滞在日数 (Exclude Days in 2025)<span style="color:red;"> * </span>:</label>
+                    <input type="text" id="i_exclude_stays_2025" placeholder="例：200">
 
-                    <small>除外対象の2024年滞在日数があれば、入力してください。ほとんどのF/Jビザ(Student)保持者は滞在年数が５年以内の場合、Jビザ(Teacher/Trainee)保持者は滞在が２年以内の場合、全て除外対象の滞在日数となるので、2024年の滞在日数をそのまま入力してください。不明点や懸念点がある場合やビザタイプの変更など別ケースに該当する場合、詳しくは<a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test#:~:text=U.S.%20airspace.-,Exempt%20individual,-Do%20not%20count"
+                    <small>除外対象の2025年滞在日数があれば、入力してください。ほとんどのF/Jビザ(Student)保持者は滞在年数が５年以内の場合、Jビザ(Teacher/Trainee)保持者は滞在が２年以内の場合、全て除外対象の滞在日数となるので、2025年の滞在日数をそのまま入力してください。不明点や懸念点がある場合やビザタイプの変更など別ケースに該当する場合、詳しくは<a href="https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test#:~:text=U.S.%20airspace.-,Exempt%20individual,-Do%20not%20count"
                             target="_blank">Substential presence test</a>を参考に除外日数を計算してください。</small>
                 </div>
             </div>

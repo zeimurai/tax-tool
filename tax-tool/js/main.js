@@ -2,15 +2,15 @@
 const part1Ids = [
     'beginningDate', 'endingDate', 'filingYear', 'firstName', 'lastName', 'tin',
     'ForeignAddress', 'usAddress', 'i_visaType_entry_date', 'i_cur_nonimmi_status',
-    'i_citizen_country', 'i_passportCountry', 'i_passportNumber', 'i_stays_2024',
-    'i_stays_2023', 'i_stays_2022', 'i_exclude_stays_2024'
+    'i_citizen_country', 'i_passportCountry', 'i_passportNumber', 'i_stays_2025',
+    'i_stays_2024', 'i_stays_2023', 'i_exclude_stays_2025'
 ];
 
 const part3Ids = [
     'iii_school_info_1', 'iii_school_info_2', 'iii_school_info_3',
     'iii_director_info_1', 'iii_director_info_2', 'iii_director_info_3',
-    'iii_visa_type_2018', 'iii_visa_type_2019', 'iii_visa_type_2020',
-    'iii_visa_type_2021', 'iii_visa_type_2022', 'iii_visa_type_2023',
+    'iii_visa_type_2019', 'iii_visa_type_2020', 'iii_visa_type_2021',
+    'iii_visa_type_2022', 'iii_visa_type_2023', 'iii_visa_type_2024',
     'iii_apply_residenct_Yes_info_1', 'iii_apply_residenct_Yes_info_2', 'iii_apply_residenct_Yes_info_3'
 ];
 
@@ -45,17 +45,17 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         const i_citizen_country = form.getTextField('topmostSubform[0].Page1[0].f1_11[0]');
         const i_passportCountry = form.getTextField('topmostSubform[0].Page1[0].f1_12[0]');
         const i_passportNumber = form.getTextField('topmostSubform[0].Page1[0].f1_13[0]');
-        const i_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_14[0]');
-        const i_stays_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_15[0]');
-        const i_stays_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_16[0]');
+        const i_stays_2025 = form.getTextField('topmostSubform[0].Page1[0].f1_14[0]');
+        const i_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_15[0]');
+        const i_stays_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_16[0]');
 
         // 日付計算からの直接入力：使用しない
+        // i_stays_2025.setText(localStorage.getItem('i_stays_2025') || '');
         // i_stays_2024.setText(localStorage.getItem('i_stays_2024') || '');
         // i_stays_2023.setText(localStorage.getItem('i_stays_2023') || '');
-        // i_stays_2022.setText(localStorage.getItem('i_stays_2022') || '');
 
 
-        const i_exclude_stays_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
+        const i_exclude_stays_2025 = form.getTextField('topmostSubform[0].Page1[0].f1_17[0]');
         // Part 3 Students (例)
         const iii_school_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_30[0]');
         const iii_school_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_31[0]');
@@ -63,12 +63,12 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         const iii_director_info_1 = form.getTextField('topmostSubform[0].Page1[0].f1_33[0]');
         const iii_director_info_2 = form.getTextField('topmostSubform[0].Page1[0].f1_34[0]');
         const iii_director_info_3 = form.getTextField('topmostSubform[0].Page1[0].f1_35[0]');
-        const iii_visa_type_2018 = form.getTextField('topmostSubform[0].Page1[0].f1_36[0]');
-        const iii_visa_type_2019 = form.getTextField('topmostSubform[0].Page1[0].f1_37[0]');
-        const iii_visa_type_2020 = form.getTextField('topmostSubform[0].Page1[0].f1_38[0]');
-        const iii_visa_type_2021 = form.getTextField('topmostSubform[0].Page1[0].f1_39[0]');
-        const iii_visa_type_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_40[0]');
-        const iii_visa_type_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_41[0]');
+        const iii_visa_type_2019 = form.getTextField('topmostSubform[0].Page1[0].f1_36[0]');
+        const iii_visa_type_2020 = form.getTextField('topmostSubform[0].Page1[0].f1_37[0]');
+        const iii_visa_type_2021 = form.getTextField('topmostSubform[0].Page1[0].f1_38[0]');
+        const iii_visa_type_2022 = form.getTextField('topmostSubform[0].Page1[0].f1_39[0]');
+        const iii_visa_type_2023 = form.getTextField('topmostSubform[0].Page1[0].f1_40[0]');
+        const iii_visa_type_2024 = form.getTextField('topmostSubform[0].Page1[0].f1_41[0]');
         const iii_more_than_5years_Yes = form.getCheckBox('topmostSubform[0].Page1[0].c1_2[0]');
         const iii_more_than_5years_No = form.getCheckBox('topmostSubform[0].Page1[0].c1_2[1]');
         const iii_apply_residenct_Yes = form.getCheckBox('topmostSubform[0].Page1[0].c1_3[0]');
@@ -91,22 +91,22 @@ document.getElementById('fillButton')?.addEventListener('click', async () => {
         i_citizen_country.setText(localStorage.getItem('i_citizen_country') || '');
         i_passportCountry.setText(localStorage.getItem('i_passportCountry') || '');
         i_passportNumber.setText(localStorage.getItem('i_passportNumber') || '');
+        i_stays_2025.setText(localStorage.getItem('i_stays_2025') || '');
         i_stays_2024.setText(localStorage.getItem('i_stays_2024') || '');
         i_stays_2023.setText(localStorage.getItem('i_stays_2023') || '');
-        i_stays_2022.setText(localStorage.getItem('i_stays_2022') || '');
-        i_exclude_stays_2024.setText(localStorage.getItem('i_exclude_stays_2024') || '');
+        i_exclude_stays_2025.setText(localStorage.getItem('i_exclude_stays_2025') || '');
         iii_school_info_1.setText(localStorage.getItem('iii_school_info_1') || '');
         iii_school_info_2.setText(localStorage.getItem('iii_school_info_2') || '');
         iii_school_info_3.setText(localStorage.getItem('iii_school_info_3') || '');
         iii_director_info_1.setText(localStorage.getItem('iii_director_info_1') || '');
         iii_director_info_2.setText(localStorage.getItem('iii_director_info_2') || '');
         iii_director_info_3.setText(localStorage.getItem('iii_director_info_3') || '');
-        iii_visa_type_2018.setText(localStorage.getItem('iii_visa_type_2018') || '');
         iii_visa_type_2019.setText(localStorage.getItem('iii_visa_type_2019') || '');
         iii_visa_type_2020.setText(localStorage.getItem('iii_visa_type_2020') || '');
         iii_visa_type_2021.setText(localStorage.getItem('iii_visa_type_2021') || '');
         iii_visa_type_2022.setText(localStorage.getItem('iii_visa_type_2022') || '');
         iii_visa_type_2023.setText(localStorage.getItem('iii_visa_type_2023') || '');
+        iii_visa_type_2024.setText(localStorage.getItem('iii_visa_type_2024') || '');
         if (localStorage.getItem('moreThan5Years') === 'iii_more_than_5years_Yes') {
             iii_more_than_5years_Yes.check();
         } else if (localStorage.getItem('moreThan5Years') === 'iii_more_than_5years_No') {
